@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850DBCF325B9A48100BEB49C /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 850DBCF225B9A48100BEB49C /* Country.m */; };
+		850DBCFC25B9A77300BEB49C /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 850DBCFB25B9A77300BEB49C /* City.m */; };
+		850DBD0225B9AD5900BEB49C /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 850DBD0125B9AD5900BEB49C /* Airport.m */; };
+		850DBD0925B9B01E00BEB49C /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 850DBD0825B9B01E00BEB49C /* DataManager.m */; };
 		853E4B7D25B97A09003737A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 853E4B7C25B97A09003737A9 /* AppDelegate.m */; };
 		853E4B8025B97A09003737A9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 853E4B7F25B97A09003737A9 /* SceneDelegate.m */; };
 		853E4B8325B97A09003737A9 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 853E4B8225B97A09003737A9 /* MainVC.m */; };
@@ -38,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		850DBCF125B9A48100BEB49C /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
+		850DBCF225B9A48100BEB49C /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
+		850DBCFA25B9A77300BEB49C /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		850DBCFB25B9A77300BEB49C /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		850DBD0025B9AD5900BEB49C /* Airport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		850DBD0125B9AD5900BEB49C /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		850DBD0725B9B01E00BEB49C /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		850DBD0825B9B01E00BEB49C /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		853E4B7825B97A09003737A9 /* AviaTicketObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviaTicketObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		853E4B7B25B97A09003737A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		853E4B7C25B97A09003737A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +97,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		850DBCF025B9A45C00BEB49C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				850DBCF125B9A48100BEB49C /* Country.h */,
+				850DBCF225B9A48100BEB49C /* Country.m */,
+				850DBCFA25B9A77300BEB49C /* City.h */,
+				850DBCFB25B9A77300BEB49C /* City.m */,
+				850DBD0025B9AD5900BEB49C /* Airport.h */,
+				850DBD0125B9AD5900BEB49C /* Airport.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		850DBD0625B9B00300BEB49C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				853E4BB925B97F19003737A9 /* tempBase */,
+				850DBCF025B9A45C00BEB49C /* Model */,
+				850DBD0725B9B01E00BEB49C /* DataManager.h */,
+				850DBD0825B9B01E00BEB49C /* DataManager.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		853E4B6F25B97A09003737A9 = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +144,7 @@
 		853E4B7A25B97A09003737A9 /* AviaTicketObjC */ = {
 			isa = PBXGroup;
 			children = (
-				853E4BB925B97F19003737A9 /* tempBase */,
+				850DBD0625B9B00300BEB49C /* Data */,
 				853E4B7B25B97A09003737A9 /* AppDelegate.h */,
 				853E4B7C25B97A09003737A9 /* AppDelegate.m */,
 				853E4B7E25B97A09003737A9 /* SceneDelegate.h */,
@@ -284,8 +320,12 @@
 			files = (
 				853E4B8325B97A09003737A9 /* MainVC.m in Sources */,
 				853E4B7D25B97A09003737A9 /* AppDelegate.m in Sources */,
+				850DBD0225B9AD5900BEB49C /* Airport.m in Sources */,
+				850DBCFC25B9A77300BEB49C /* City.m in Sources */,
 				853E4B8E25B97A0B003737A9 /* main.m in Sources */,
+				850DBD0925B9B01E00BEB49C /* DataManager.m in Sources */,
 				853E4B8025B97A09003737A9 /* SceneDelegate.m in Sources */,
+				850DBCF325B9A48100BEB49C /* Country.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
