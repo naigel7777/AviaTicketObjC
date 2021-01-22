@@ -6,7 +6,7 @@
 //
 
 #import "MainVC.h"
-
+#import "DataManager.h"
 @interface MainVC ()
 
 @end
@@ -15,7 +15,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [[DataManager sharedInstance] loadData];
+    
 }
 
 
