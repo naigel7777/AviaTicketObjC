@@ -82,6 +82,18 @@
     
 }
 
+-(NSArray *)countries{
+    return _countriesArray;
+}
+
+-(NSArray *)cities{
+    return _citiesArray;
+}
+
+-(NSArray *)airports{
+    return _airportsArray;
+}
+
 
 
 @end
