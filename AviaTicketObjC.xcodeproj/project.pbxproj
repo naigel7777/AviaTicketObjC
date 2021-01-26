@@ -23,6 +23,9 @@
 		853E4BBE25B97F37003737A9 /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 853E4BBB25B97F37003737A9 /* airports.json */; };
 		853E4BBF25B97F37003737A9 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 853E4BBC25B97F37003737A9 /* cities.json */; };
 		857AE64125BF485A00BAA2A6 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE64025BF485A00BAA2A6 /* APIManager.m */; };
+		857AE64825C02E4D00BAA2A6 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE64725C02E4D00BAA2A6 /* Ticket.m */; };
+		857AE65725C0752D00BAA2A6 /* TicketTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE65625C0752D00BAA2A6 /* TicketTVCell.m */; };
+		857AE66925C0815B00BAA2A6 /* TicketsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE66825C0815B00BAA2A6 /* TicketsTVC.m */; };
 		858A96E825BAD022005889DB /* PlaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A96E725BAD022005889DB /* PlaceVC.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +77,12 @@
 		853E4BBC25B97F37003737A9 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		857AE63F25BF485A00BAA2A6 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		857AE64025BF485A00BAA2A6 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		857AE64625C02E4D00BAA2A6 /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		857AE64725C02E4D00BAA2A6 /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		857AE65525C0752D00BAA2A6 /* TicketTVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketTVCell.h; sourceTree = "<group>"; };
+		857AE65625C0752D00BAA2A6 /* TicketTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTVCell.m; sourceTree = "<group>"; };
+		857AE66725C0815B00BAA2A6 /* TicketsTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketsTVC.h; sourceTree = "<group>"; };
+		857AE66825C0815B00BAA2A6 /* TicketsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketsTVC.m; sourceTree = "<group>"; };
 		858A96E625BAD022005889DB /* PlaceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceVC.h; sourceTree = "<group>"; };
 		858A96E725BAD022005889DB /* PlaceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,9 +213,23 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		857AE64525C02E2400BAA2A6 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				857AE64625C02E4D00BAA2A6 /* Ticket.h */,
+				857AE64725C02E4D00BAA2A6 /* Ticket.m */,
+				857AE65525C0752D00BAA2A6 /* TicketTVCell.h */,
+				857AE65625C0752D00BAA2A6 /* TicketTVCell.m */,
+				857AE66725C0815B00BAA2A6 /* TicketsTVC.h */,
+				857AE66825C0815B00BAA2A6 /* TicketsTVC.m */,
+			);
+			path = Tickets;
+			sourceTree = "<group>";
+		};
 		858A96E425BACFED005889DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				857AE64525C02E2400BAA2A6 /* Tickets */,
 				858A96E525BACFFF005889DB /* Place */,
 			);
 			path = Views;
@@ -357,9 +380,12 @@
 				850DBD0225B9AD5900BEB49C /* Airport.m in Sources */,
 				858A96E825BAD022005889DB /* PlaceVC.m in Sources */,
 				857AE64125BF485A00BAA2A6 /* APIManager.m in Sources */,
+				857AE66925C0815B00BAA2A6 /* TicketsTVC.m in Sources */,
 				850DBCFC25B9A77300BEB49C /* City.m in Sources */,
 				853E4B8E25B97A0B003737A9 /* main.m in Sources */,
+				857AE65725C0752D00BAA2A6 /* TicketTVCell.m in Sources */,
 				850DBD0925B9B01E00BEB49C /* DataManager.m in Sources */,
+				857AE64825C02E4D00BAA2A6 /* Ticket.m in Sources */,
 				853E4B8025B97A09003737A9 /* SceneDelegate.m in Sources */,
 				850DBCF325B9A48100BEB49C /* Country.m in Sources */,
 			);

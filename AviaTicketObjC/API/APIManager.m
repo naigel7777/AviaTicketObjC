@@ -7,6 +7,7 @@
 
 #import "APIManager.h"
 #import "DataManager.h"
+#import "Ticket.h"
 
 #define API_TOKEN @"1cb76ce477cf9a481e08ab464a7c53f9"
 #define API_URL_IP_ADRESS @"https://api.ipify.org/?format=json"
@@ -60,6 +61,35 @@
     
 }
 
+-(void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion {
+    NSString *urlString = [NSString stringWithFormat:@"%@?%@&token=%@",API_URL_CHEAP,SearchRequestQuerry(request),API_TOKEN];
+    [self load:urlString withCompletion:^(id  _Nullable result) {
+        NSDictionary *response = result;
+        if (response) {
+            NSDictionary *json = [[response valueForKey:@"data"] valueForKey:request.destination];
+            NSMutableArray *array = [NSMutableArray new];
+            for (NSString *key in json) {
+                NSDictionary *value = [json valueForKey: key];
+                Ticket *ticket = [[Ticket alloc] initWithDictionary:value];
+                ticket.from = request.origin;
+                ticket.to = request.destination;
+                [array addObject:ticket];
+            }
+        }
+    }];
+}
 
+NSString * SearchRequestQuerry(SearchRequest request) {
+    
+    
+    NSString *result = [NSString stringWithFormat:@"origin=%@&dectination=%@", request.origin, request.destination];
+    if (request.departureDate && request.returnDate) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM";
+        result = [NSString stringWithFormat:@"%@&depart_date=%@&return_date=%@",result,[dateFormatter stringFromDate:request.departureDate], [dateFormatter stringFromDate:request.returnDate]];
+    }
+    
+    return  result;
+}
 
 @end
