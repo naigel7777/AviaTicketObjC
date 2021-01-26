@@ -63,7 +63,9 @@
     [self.placeTableView reloadData];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_currentArray count];
 }
 
@@ -88,7 +90,11 @@
     
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DataSourceType dataType = ((int)_placeSegmentControl.selectedSegmentIndex) + 1;
+    [self.delegate selectPlace:[_currentArray objectAtIndex:indexPath.row] withType:_placeType andDataType:dataType];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 @end

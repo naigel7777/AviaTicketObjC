@@ -22,6 +22,7 @@
 		853E4BBD25B97F37003737A9 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 853E4BBA25B97F37003737A9 /* countries.json */; };
 		853E4BBE25B97F37003737A9 /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 853E4BBB25B97F37003737A9 /* airports.json */; };
 		853E4BBF25B97F37003737A9 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 853E4BBC25B97F37003737A9 /* cities.json */; };
+		857AE64125BF485A00BAA2A6 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE64025BF485A00BAA2A6 /* APIManager.m */; };
 		858A96E825BAD022005889DB /* PlaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A96E725BAD022005889DB /* PlaceVC.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		853E4BBA25B97F37003737A9 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		853E4BBB25B97F37003737A9 /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
 		853E4BBC25B97F37003737A9 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		857AE63F25BF485A00BAA2A6 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		857AE64025BF485A00BAA2A6 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		858A96E625BAD022005889DB /* PlaceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceVC.h; sourceTree = "<group>"; };
 		858A96E725BAD022005889DB /* PlaceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +150,7 @@
 		853E4B7A25B97A09003737A9 /* AviaTicketObjC */ = {
 			isa = PBXGroup;
 			children = (
+				857AE63E25BF483400BAA2A6 /* API */,
 				858A96E425BACFED005889DB /* Views */,
 				850DBD0625B9B00300BEB49C /* Data */,
 				853E4B7B25B97A09003737A9 /* AppDelegate.h */,
@@ -189,6 +193,15 @@
 				853E4BBA25B97F37003737A9 /* countries.json */,
 			);
 			path = tempBase;
+			sourceTree = "<group>";
+		};
+		857AE63E25BF483400BAA2A6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				857AE63F25BF485A00BAA2A6 /* APIManager.h */,
+				857AE64025BF485A00BAA2A6 /* APIManager.m */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		858A96E425BACFED005889DB /* Views */ = {
@@ -343,6 +356,7 @@
 				853E4B7D25B97A09003737A9 /* AppDelegate.m in Sources */,
 				850DBD0225B9AD5900BEB49C /* Airport.m in Sources */,
 				858A96E825BAD022005889DB /* PlaceVC.m in Sources */,
+				857AE64125BF485A00BAA2A6 /* APIManager.m in Sources */,
 				850DBCFC25B9A77300BEB49C /* City.m in Sources */,
 				853E4B8E25B97A0B003737A9 /* main.m in Sources */,
 				850DBD0925B9B01E00BEB49C /* DataManager.m in Sources */,

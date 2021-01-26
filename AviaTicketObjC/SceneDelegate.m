@@ -24,7 +24,8 @@
     
     MainVC *mainVC = [[MainVC alloc] init];
     UINavigationController *mainNC = [[UINavigationController alloc] initWithRootViewController:mainVC];
-    
+    [mainNC.navigationBar setBackgroundColor:[UIColor magentaColor]];
+    mainNC.navigationBar.tintColor = [UIColor redColor];
     self.window.rootViewController = mainNC;
     UIWindowScene *windowScene = (UIWindowScene*)scene;
     [self.window setWindowScene:windowScene];
