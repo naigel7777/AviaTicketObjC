@@ -31,7 +31,7 @@ typedef struct SearchRequest{
 
 -(void)loadData;
 -(City *)cityForIATA:(NSString *)iata;
-
+- (City *)cityForLocation:(CLLocation *)location;
 @property (nonatomic, strong, readonly) NSArray *countries;
 @property (nonatomic, strong, readonly) NSArray *cities;
 @property (nonatomic, strong, readonly) NSArray *airports;

@@ -10,6 +10,7 @@
 #import "PlaceVC.h"
 #import "APIManager.h"
 #import "TicketsTVC.h"
+#import "MapVC.h"
 
 @interface MainVC ()<PlaceVCDelegate>
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) UIButton *departureButton;
 @property (nonatomic, strong) UIButton *arrivalButton;
 @property (nonatomic, strong) UIButton *searchButton;
+@property (nonatomic, strong) UIButton *mapButton;
 @property (nonatomic) SearchRequest searchRequest;
 
 @end
@@ -67,14 +69,24 @@
     _searchButton.layer.cornerRadius = 4.0;
     _searchButton.titleLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightBold];
     _searchButton.backgroundColor = [[UIColor lightGrayColor]colorWithAlphaComponent:0.8];
-    [_searchButton addTarget:self action:@selector(SearchButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [_searchButton addTarget:self action:@selector(searchButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_searchButton];
+    
+    _mapButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_mapButton setTitle:@"Search on Map" forState:UIControlStateNormal];
+    _mapButton.tintColor = [UIColor whiteColor];
+    _mapButton.frame = CGRectMake(30, CGRectGetMaxY(_searchButton.frame) + 30, [UIScreen mainScreen].bounds.size.width - 60.0, 60);
+    _mapButton.layer.cornerRadius = 4.0;
+    _mapButton.titleLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightBold];
+    _mapButton.backgroundColor = [[UIColor lightGrayColor]colorWithAlphaComponent:0.8];
+    [_mapButton addTarget:self action:@selector(mapButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_mapButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoaded) name:kDataManagerLoadDataDidConplete object:nil];
 }
 
 
--(void)searchButtonTapped:(UIButton *) sender {
+-(void)searchButtonTapped:(UIButton *)sender {
     [[APIManager sharedinstance] ticketsWithRequest:_searchRequest withCompletion:^(NSArray *tickets) {
         if (tickets.count > 0) {
             TicketsTVC *ticketsVC = [[TicketsTVC alloc] initWithTickets:tickets];
@@ -82,14 +94,20 @@
         } else {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"OHH NOOO!" message:@"No tickets for chosen destination, try again" preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"Close" style:(UIAlertActionStyleDefault) handler:nil]];
+           
             [self presentViewController:alert animated:YES completion:nil];
-            
         }
     }];
-    
-    
-    
 }
+
+-(void)mapButtonTapped:(UIButton *)sender {
+   
+            MapVC *mapVC = [[MapVC alloc] init];
+            [self.navigationController showViewController:mapVC sender:self];
+        
+  
+}
+
 
 -(void) dataLoaded {
     [[APIManager sharedinstance] cityForCurrentIP:^(City *city) {

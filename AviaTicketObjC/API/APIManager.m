@@ -8,11 +8,14 @@
 #import "APIManager.h"
 #import "DataManager.h"
 #import "Ticket.h"
+#import "MapPrice.h"
 
-#define API_TOKEN @"1cb76ce477cf9a481e08ab464a7c53f9"
-#define API_URL_IP_ADRESS @"https://api.ipify.org/?format=json"
-#define API_URL_CHEAP @"https://api.travvelpayouts.com/v1/prices/cheap"
+
+#define API_TOKEN @"0fa373e04e1c63743565bf8e13cc1486"
+#define API_URL_IP_ADDRESS @"https://api.ipify.org/?format=json"
+#define API_URL_CHEAP @"https://api.travelpayouts.com/v1/prices/cheap"
 #define API_URL_CITY_FROM_IP @"https://www.travelpayouts.com/whereami?ip="
+#define API_URL_MAP_PRICE @"https://map.aviasales.ru/prices.json?origin_iata="
 
 @implementation APIManager
 
@@ -45,7 +48,7 @@
 }
 
 -(void)getIPAdress:(void (^)(NSString *ipAdress))completion{
-    [self load:API_URL_IP_ADRESS withCompletion:^(id _Nullable result) {
+    [self load:API_URL_IP_ADDRESS withCompletion:^(id _Nullable result) {
         NSDictionary *json = result;
         completion([json valueForKey:@"ip"]);
     }];
@@ -61,8 +64,8 @@
     
 }
 
--(void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion {
-    NSString *urlString = [NSString stringWithFormat:@"%@?%@&token=%@",API_URL_CHEAP,SearchRequestQuerry(request),API_TOKEN];
+- (void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion {
+    NSString *urlString = [NSString stringWithFormat:@"%@?%@&token=%@", API_URL_CHEAP, SearchRequestQuery(request), API_TOKEN];
     [self load:urlString withCompletion:^(id  _Nullable result) {
         NSDictionary *response = result;
         if (response) {
@@ -75,21 +78,42 @@
                 ticket.to = request.destination;
                 [array addObject:ticket];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(array);
+            });
         }
     }];
 }
 
-NSString * SearchRequestQuerry(SearchRequest request) {
-    
-    
-    NSString *result = [NSString stringWithFormat:@"origin=%@&dectination=%@", request.origin, request.destination];
+NSString * SearchRequestQuery(SearchRequest request) {
+    NSString *result = [NSString stringWithFormat:@"origin=%@&destination=%@", request.origin, request.destination];
     if (request.departureDate && request.returnDate) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat = @"yyyy-MM";
-        result = [NSString stringWithFormat:@"%@&depart_date=%@&return_date=%@",result,[dateFormatter stringFromDate:request.departureDate], [dateFormatter stringFromDate:request.returnDate]];
+        result = [NSString stringWithFormat:@"%@&depart_date=%@&return_date=%@", result, [dateFormatter stringFromDate:request.departureDate], [dateFormatter stringFromDate:request.returnDate]];
     }
-    
-    return  result;
+    return result;
 }
+
+- (void)mapPricesFor:(City *)origin withCompletion:(void (^)(NSArray *prices))completion {
+    static BOOL isLoading;
+    if (isLoading) { return; }
+    isLoading = YES;
+    [self load:[NSString stringWithFormat:@"%@%@", API_URL_MAP_PRICE, origin.code] withCompletion:^(id  _Nullable result) {
+        NSArray *array = result;
+        NSMutableArray *prices = [NSMutableArray new];
+        if (array) {
+            for (NSDictionary *mapPriceDictionary in array) {
+                MapPrice *mapPrice = [[MapPrice alloc] initWithDictionary:mapPriceDictionary withOrigin:origin];
+                [prices addObject:mapPrice];
+            }
+            isLoading = NO;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(prices);
+            });
+        }
+    }];
+}
+
 
 @end
