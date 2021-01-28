@@ -56,8 +56,8 @@
     self.contentView.frame = CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width - 20.0, self.frame.size.height - 20.0);
     _priceLabel.frame = CGRectMake(10.0, 10.0, self.contentView.frame.size.width - 110.0, 40);
     _airlineLogoView.frame = CGRectMake(CGRectGetMaxX(_priceLabel.frame) + 10, 10, 80, 80);
-    _placeLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_priceLabel.frame) + 16, 100.0, 20.0);
-    _dateLabel.frame = CGRectMake(10, CGRectGetMaxY(_priceLabel.frame) + 8, self.contentView.frame.size.width - 20.0, 20.0);
+    _placeLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_priceLabel.frame) + 20, 100.0, 20.0);
+    _dateLabel.frame = CGRectMake(10, CGRectGetMaxY(_priceLabel.frame) + 5, self.contentView.frame.size.width - 20.0, 20.0);
     
 }
 

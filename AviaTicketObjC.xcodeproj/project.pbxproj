@@ -11,6 +11,7 @@
 		850DBCFC25B9A77300BEB49C /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 850DBCFB25B9A77300BEB49C /* City.m */; };
 		850DBD0225B9AD5900BEB49C /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 850DBD0125B9AD5900BEB49C /* Airport.m */; };
 		850DBD0925B9B01E00BEB49C /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 850DBD0825B9B01E00BEB49C /* DataManager.m */; };
+		8537B6C625C35D1E00D7F74C /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8537B6C525C35D1E00D7F74C /* ProgressView.m */; };
 		853E4B7D25B97A09003737A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 853E4B7C25B97A09003737A9 /* AppDelegate.m */; };
 		853E4B8025B97A09003737A9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 853E4B7F25B97A09003737A9 /* SceneDelegate.m */; };
 		853E4B8325B97A09003737A9 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 853E4B8225B97A09003737A9 /* MainVC.m */; };
@@ -59,6 +60,8 @@
 		850DBD0125B9AD5900BEB49C /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		850DBD0725B9B01E00BEB49C /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		850DBD0825B9B01E00BEB49C /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		8537B6C425C35D1E00D7F74C /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		8537B6C525C35D1E00D7F74C /* ProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		853E4B7825B97A09003737A9 /* AviaTicketObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviaTicketObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		853E4B7B25B97A09003737A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		853E4B7C25B97A09003737A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -148,6 +151,15 @@
 				850DBD0825B9B01E00BEB49C /* DataManager.m */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		8537B6C325C35CFE00D7F74C /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				8537B6C425C35D1E00D7F74C /* ProgressView.h */,
+				8537B6C525C35D1E00D7F74C /* ProgressView.m */,
+			);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 		853E4B6F25B97A09003737A9 = {
@@ -262,6 +274,7 @@
 		858A96E425BACFED005889DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8537B6C325C35CFE00D7F74C /* Progress */,
 				857AE67D25C0C26100BAA2A6 /* Map */,
 				857AE64525C02E2400BAA2A6 /* Tickets */,
 				858A96E525BACFFF005889DB /* Place */,
@@ -422,6 +435,7 @@
 				857AE65725C0752D00BAA2A6 /* TicketTVCell.m in Sources */,
 				857AE68025C0C28400BAA2A6 /* MapVC.m in Sources */,
 				857AE67925C0A20D00BAA2A6 /* MapPrice.m in Sources */,
+				8537B6C625C35D1E00D7F74C /* ProgressView.m in Sources */,
 				857AE67025C09BF300BAA2A6 /* LocationController.m in Sources */,
 				850DBD0925B9B01E00BEB49C /* DataManager.m in Sources */,
 				857AE64825C02E4D00BAA2A6 /* Ticket.m in Sources */,

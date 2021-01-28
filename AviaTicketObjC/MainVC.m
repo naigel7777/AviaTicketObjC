@@ -11,6 +11,7 @@
 #import "APIManager.h"
 #import "TicketsTVC.h"
 #import "MapVC.h"
+#import "ProgressView.h"
 
 @interface MainVC ()<PlaceVCDelegate>
 
@@ -29,9 +30,13 @@
     [super viewDidLoad];
     [[DataManager sharedInstance] loadData];
     self.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"321"]];
-    self.navigationController.navigationBar.prefersLargeTitles = YES;
-    self.navigationController.navigationBar.backgroundColor = [UIColor systemBlueColor];
-    self.title = @"Search";
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                             forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+//    self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.navigationBar.prefersLargeTitles = YES;
+ //   self.navigationController.navigationBar.backgroundColor = [UIColor systemBlueColor];
+//    self.title = @"Search";
   
     _placeContainer = [[UIView alloc] initWithFrame:CGRectMake(20, 140, [UIScreen mainScreen].bounds.size.width - 40, 170)];
     _placeContainer.backgroundColor = [[UIColor magentaColor]colorWithAlphaComponent:0.3];
@@ -87,18 +92,29 @@
 
 
 -(void)searchButtonTapped:(UIButton *)sender {
-    [[APIManager sharedinstance] ticketsWithRequest:_searchRequest withCompletion:^(NSArray *tickets) {
-        if (tickets.count > 0) {
-            TicketsTVC *ticketsVC = [[TicketsTVC alloc] initWithTickets:tickets];
-            [self.navigationController showViewController:ticketsVC sender:self];
-        } else {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"OHH NOOO!" message:@"No tickets for chosen destination, try again" preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"Close" style:(UIAlertActionStyleDefault) handler:nil]];
-           
-            [self presentViewController:alert animated:YES completion:nil];
-        }
-    }];
+    if (_searchRequest.origin && _searchRequest.destination) {
+        [[ProgressView sharedInstance] show:^{
+            [[APIManager sharedinstance] ticketsWithRequest:self->_searchRequest withCompletion:^(NSArray *tickets) {
+                [[ProgressView sharedInstance] dismiss:^{
+                    if (tickets.count > 0) {
+                        TicketsTVC *ticketsViewController = [[TicketsTVC alloc] initWithTickets:tickets];
+                        [self.navigationController showViewController:ticketsViewController sender:self];
+                    } else {
+                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"OHHH NOOO" message:@"No aditiona results for request - try change destination" preferredStyle: UIAlertControllerStyleAlert];
+                        [alertController addAction:[UIAlertAction actionWithTitle:@"Try again" style:(UIAlertActionStyleDefault) handler:nil]];
+                        [self presentViewController:alertController animated:YES completion:nil];
+                    }
+                }];
+            }];
+        }];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please choose destination" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:(UIAlertActionStyleDefault) handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
+
+
 
 -(void)mapButtonTapped:(UIButton *)sender {
    
