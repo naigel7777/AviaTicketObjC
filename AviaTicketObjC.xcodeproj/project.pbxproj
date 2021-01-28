@@ -29,6 +29,7 @@
 		857AE67025C09BF300BAA2A6 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE66F25C09BF300BAA2A6 /* LocationController.m */; };
 		857AE67925C0A20D00BAA2A6 /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE67825C0A20D00BAA2A6 /* MapPrice.m */; };
 		857AE68025C0C28400BAA2A6 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE67F25C0C28400BAA2A6 /* MapVC.m */; };
+		857AE68925C2D8C300BAA2A6 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE68825C2D8C300BAA2A6 /* TabBarController.m */; };
 		858A96E825BAD022005889DB /* PlaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A96E725BAD022005889DB /* PlaceVC.m */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,8 @@
 		857AE67825C0A20D00BAA2A6 /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
 		857AE67E25C0C28400BAA2A6 /* MapVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
 		857AE67F25C0C28400BAA2A6 /* MapVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
+		857AE68725C2D8C300BAA2A6 /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		857AE68825C2D8C300BAA2A6 /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		858A96E625BAD022005889DB /* PlaceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceVC.h; sourceTree = "<group>"; };
 		858A96E725BAD022005889DB /* PlaceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,6 +265,8 @@
 				857AE67D25C0C26100BAA2A6 /* Map */,
 				857AE64525C02E2400BAA2A6 /* Tickets */,
 				858A96E525BACFFF005889DB /* Place */,
+				857AE68725C2D8C300BAA2A6 /* TabBarController.h */,
+				857AE68825C2D8C300BAA2A6 /* TabBarController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				857AE67025C09BF300BAA2A6 /* LocationController.m in Sources */,
 				850DBD0925B9B01E00BEB49C /* DataManager.m in Sources */,
 				857AE64825C02E4D00BAA2A6 /* Ticket.m in Sources */,
+				857AE68925C2D8C300BAA2A6 /* TabBarController.m in Sources */,
 				853E4B8025B97A09003737A9 /* SceneDelegate.m in Sources */,
 				850DBCF325B9A48100BEB49C /* Country.m in Sources */,
 			);
@@ -586,6 +592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G2W9A8YDWD;
 				INFOPLIST_FILE = AviaTicketObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -603,6 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G2W9A8YDWD;
 				INFOPLIST_FILE = AviaTicketObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
