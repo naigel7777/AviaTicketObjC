@@ -23,6 +23,7 @@
 		853E4BBD25B97F37003737A9 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 853E4BBA25B97F37003737A9 /* countries.json */; };
 		853E4BBE25B97F37003737A9 /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 853E4BBB25B97F37003737A9 /* airports.json */; };
 		853E4BBF25B97F37003737A9 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 853E4BBC25B97F37003737A9 /* cities.json */; };
+		853E67AF25C40BF000E6780A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 853E67B125C40BF000E6780A /* Localizable.strings */; };
 		857AE64125BF485A00BAA2A6 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE64025BF485A00BAA2A6 /* APIManager.m */; };
 		857AE64825C02E4D00BAA2A6 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE64725C02E4D00BAA2A6 /* Ticket.m */; };
 		857AE65725C0752D00BAA2A6 /* TicketTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 857AE65625C0752D00BAA2A6 /* TicketTVCell.m */; };
@@ -82,6 +83,8 @@
 		853E4BBA25B97F37003737A9 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		853E4BBB25B97F37003737A9 /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
 		853E4BBC25B97F37003737A9 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		853E67B025C40BF000E6780A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		853E67B525C40D6300E6780A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		857AE63F25BF485A00BAA2A6 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		857AE64025BF485A00BAA2A6 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		857AE64625C02E4D00BAA2A6 /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
@@ -185,6 +188,7 @@
 		853E4B7A25B97A09003737A9 /* AviaTicketObjC */ = {
 			isa = PBXGroup;
 			children = (
+				853E67A925C40BC300E6780A /* Localization */,
 				857AE66D25C09BD200BAA2A6 /* Location */,
 				857AE63E25BF483400BAA2A6 /* API */,
 				858A96E425BACFED005889DB /* Views */,
@@ -229,6 +233,14 @@
 				853E4BBA25B97F37003737A9 /* countries.json */,
 			);
 			path = tempBase;
+			sourceTree = "<group>";
+		};
+		853E67A925C40BC300E6780A /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				853E67B125C40BF000E6780A /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		857AE63E25BF483400BAA2A6 /* API */ = {
@@ -377,6 +389,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 853E4B6F25B97A09003737A9;
 			productRefGroup = 853E4B7925B97A09003737A9 /* Products */;
@@ -396,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				853E4BBD25B97F37003737A9 /* countries.json in Resources */,
+				853E67AF25C40BF000E6780A /* Localizable.strings in Resources */,
 				853E4BBF25B97F37003737A9 /* cities.json in Resources */,
 				853E4BBE25B97F37003737A9 /* airports.json in Resources */,
 				853E4B8B25B97A0B003737A9 /* LaunchScreen.storyboard in Resources */,
@@ -485,6 +499,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		853E67B125C40BF000E6780A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				853E67B025C40BF000E6780A /* en */,
+				853E67B525C40D6300E6780A /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -492,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -551,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

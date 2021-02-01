@@ -22,7 +22,7 @@
     self = [super init];
     if (self) {
         _tickets = tickets;
-        self.title = @"Tickets";
+        self.title = NSLocalizedString(@"tickets_title", "");
         self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
         [self.tableView registerClass:[TicketTVCell class] forCellReuseIdentifier:TicketCellReuseidetifire];
     }

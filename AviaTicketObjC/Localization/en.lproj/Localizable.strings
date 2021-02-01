@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  AviaTicketObjC
+
+  Created by Nail Safin on 29.01.2021.
+  
+*/
+
+// TabBarController
+
+"search" = "Search";
+"map" = "Map";
+
+
+
+// MainVC
+
+"from" = "From";
+"from_field" = "choose location";
+"where" = "Where";
+"where_field" = "choose destination";
+"main_search" = "Search";
+
+//PlaceVC
+
+"cities_segment" = "Cities";
+"airport_segment" = "Airports";
+
+// TicketsTVC
+
+"tickets_title" = "Tickets";
+
+
+// Alerts
+
+"error" = "OHH NOOO";
+"tickets_not_found" = "No aditiona results for request - please, try change destination";
+"close" = "Try again";
+"not_set_place_arrival_or_departure" = "Please choose destination";
+
+//Background Image
+
+"beach" = "321";

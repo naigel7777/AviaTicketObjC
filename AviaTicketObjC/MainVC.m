@@ -20,6 +20,8 @@
 @property (nonatomic, strong) UIButton *arrivalButton;
 @property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic, strong) UIButton *mapButton;
+@property (nonatomic, strong) UIDatePicker *fromDate;
+@property (nonatomic, strong) NSDate *fromDatePicker;
 @property (nonatomic) SearchRequest searchRequest;
 
 @end
@@ -29,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[DataManager sharedInstance] loadData];
-    self.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"321"]];
+    self.view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:NSLocalizedString(@"beach", "")]];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                              forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -39,7 +41,7 @@
 //    self.title = @"Search";
   
     _placeContainer = [[UIView alloc] initWithFrame:CGRectMake(20, 140, [UIScreen mainScreen].bounds.size.width - 40, 170)];
-    _placeContainer.backgroundColor = [[UIColor magentaColor]colorWithAlphaComponent:0.3];
+    _placeContainer.backgroundColor = [[UIColor systemBlueColor]colorWithAlphaComponent:0.3];
     _placeContainer.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.3] CGColor];
     _placeContainer.layer.shadowOffset = CGSizeZero;
     _placeContainer.layer.shadowRadius = 20;
@@ -48,7 +50,7 @@
     
     
     _departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_departureButton setTitle:@"From" forState:UIControlStateNormal];
+    [_departureButton setTitle:NSLocalizedString(@"from_field", "") forState:UIControlStateNormal];
     _departureButton.tintColor = [UIColor blueColor];
     _departureButton.frame = CGRectMake(30, 20, [UIScreen mainScreen].bounds.size.width - 100.0, 60);
     _departureButton.layer.cornerRadius = 4.0;
@@ -56,19 +58,26 @@
     [_departureButton addTarget:self action:@selector(placeButtonTaped:) forControlEvents:UIControlEventTouchUpInside];
     [self.placeContainer addSubview:_departureButton];
     
-    _arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_arrivalButton setTitle:@"Where" forState:UIControlStateNormal];
-    _arrivalButton.tintColor = [UIColor blueColor];
-    _arrivalButton.frame = CGRectMake(30, CGRectGetMaxY(_departureButton.frame) + 20, [UIScreen mainScreen].bounds.size.width - 100.0, 60);
-    _arrivalButton.layer.cornerRadius = 4.0;
-    _arrivalButton.backgroundColor = [[UIColor lightGrayColor]colorWithAlphaComponent:0.6];
-    [_arrivalButton addTarget:self action:@selector(placeButtonTaped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.placeContainer addSubview:_arrivalButton];
+    _fromDate = [[UIDatePicker alloc] initWithFrame:CGRectMake(30, CGRectGetMaxY(_departureButton.frame) + 20, [UIScreen mainScreen].bounds.size.width - 100.0, 60)];
+    _fromDate.datePickerMode = UIDatePickerModeDate;
+    _fromDate.minimumDate = [NSDate date];
+    [_fromDate addTarget:self action:@selector(dateChoosen:) forControlEvents:UIControlEventValueChanged];
+    _fromDatePicker = [_fromDate date];
+    [self.placeContainer addSubview:_fromDate];
     
+//    _arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [_arrivalButton setTitle:NSLocalizedString(@"where_field", "") forState:UIControlStateNormal];
+//    _arrivalButton.tintColor = [UIColor blueColor];
+//    _arrivalButton.frame = CGRectMake(30, CGRectGetMaxY(_departureButton.frame) + 20, [UIScreen mainScreen].bounds.size.width - 100.0, 60);
+//    _arrivalButton.layer.cornerRadius = 4.0;
+//    _arrivalButton.backgroundColor = [[UIColor lightGrayColor]colorWithAlphaComponent:0.6];
+//    [_arrivalButton addTarget:self action:@selector(placeButtonTaped:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.placeContainer addSubview:_arrivalButton];
+//
     [self.view addSubview:_placeContainer];
-    
+//
     _searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_searchButton setTitle:@"Search" forState:UIControlStateNormal];
+    [_searchButton setTitle:NSLocalizedString(@"main_search", "") forState:UIControlStateNormal];
     _searchButton.tintColor = [UIColor blackColor];
     _searchButton.frame = CGRectMake(30, CGRectGetMaxY(_placeContainer.frame) + 30, [UIScreen mainScreen].bounds.size.width - 60.0, 60);
     _searchButton.layer.cornerRadius = 4.0;
@@ -100,21 +109,28 @@
                         TicketsTVC *ticketsViewController = [[TicketsTVC alloc] initWithTickets:tickets];
                         [self.navigationController showViewController:ticketsViewController sender:self];
                     } else {
-                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"OHHH NOOO" message:@"No aditiona results for request - try change destination" preferredStyle: UIAlertControllerStyleAlert];
-                        [alertController addAction:[UIAlertAction actionWithTitle:@"Try again" style:(UIAlertActionStyleDefault) handler:nil]];
+                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"error", "") message:NSLocalizedString(@"tickets_not_found", "") preferredStyle: UIAlertControllerStyleAlert];
+                        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"close", "") style:(UIAlertActionStyleDefault) handler:nil]];
                         [self presentViewController:alertController animated:YES completion:nil];
                     }
                 }];
             }];
         }];
     } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please choose destination" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:(UIAlertActionStyleDefault) handler:nil]];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"error", "") message:NSLocalizedString(@"not_set_place_arrival_or_departure", "") preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"close", "") style:(UIAlertActionStyleDefault) handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
-
+-(void)dateChoosen:(UIDatePicker *)sender {
+   
+    NSLog(@"chosen date");
+    NSLog(@"%@",sender.date);
+    NSLog(@"%@",_fromDatePicker);
+        
+  
+}
 
 -(void)mapButtonTapped:(UIButton *)sender {
    

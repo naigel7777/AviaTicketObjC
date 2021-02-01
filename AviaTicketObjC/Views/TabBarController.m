@@ -30,12 +30,12 @@
     NSMutableArray<UIViewController*> *controllers = [NSMutableArray new];
     
     MainVC *mainVC = [[MainVC alloc] init];
-    mainVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Search" image:[UIImage systemImageNamed:@"magnifyingglass.circle"] selectedImage:[UIImage systemImageNamed:@"magnifyingglass.circle.fill"]];
+    mainVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"search", "") image:[UIImage systemImageNamed:@"magnifyingglass.circle"] selectedImage:[UIImage systemImageNamed:@"magnifyingglass.circle.fill"]];
     UINavigationController *mainNC = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [controllers addObject:mainNC];
     
     MapVC *mapVC = [[MapVC alloc] init];
-    mapVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage systemImageNamed:@"map"] selectedImage:[UIImage systemImageNamed:@"map.fill"]];
+    mapVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"map", "") image:[UIImage systemImageNamed:@"map"] selectedImage:[UIImage systemImageNamed:@"map.fill"]];
     UINavigationController *mapNC = [[UINavigationController alloc] initWithRootViewController:mapVC];
     [controllers addObject:mapNC];
     

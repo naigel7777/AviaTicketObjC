@@ -46,7 +46,7 @@
     self.navigationItem.searchController = _searchController;
     [self.view addSubview:_placeTableView];
     
-    _placeSegmentControl = [[UISegmentedControl alloc] initWithItems:@[@"Cities",@"Airports"]];
+    _placeSegmentControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"cities_segment", ""),NSLocalizedString(@"airports_segment", "")]];
     [_placeSegmentControl addTarget:self action:@selector(changeSource) forControlEvents:UIControlEventValueChanged];
     _placeSegmentControl.tintColor = [UIColor blackColor];
     self.navigationItem.titleView = _placeSegmentControl;
