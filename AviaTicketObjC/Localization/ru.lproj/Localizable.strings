@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  AviaTicketObjC
+
+  Created by Nail Safin on 29.01.2021.
+  
+*/
+// TabBarController
+
+"search" = "Поиск";
+"map" = "Карта";
+
+// MainVC
+
+"from" = "Откуда";
+"from_field" = "Откуда";
+"where" = "Куда";
+"where_field" = "Куда";
+"main_search" = "Найти";
+
+//PlaceVC
+
+"cities_segment" = "Города";
+"airport_segment" = "Аэропорты";
+
+// TicketsTVC
+
+"tickets_title" = "Билеты";
+
+// Alerts
+
+"error" = "Ошибка";
+"tickets_not_found" = "По данному направлению билетов не найдено";
+"close" = "Закрыть";
+"not_set_place_arrival_or_departure" = "Необходимо указать место отправления и место прибытия";
+
+//Background Image
+
+"beach" = "222";

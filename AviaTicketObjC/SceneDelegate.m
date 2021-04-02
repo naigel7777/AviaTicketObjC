@@ -7,7 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "MainVC.h"
-
+#import "TabBarController.h"
 
 @interface SceneDelegate ()
 
@@ -22,10 +22,13 @@
     self.window = [[UIWindow alloc] initWithFrame:windowFrame];
     [self.window makeKeyAndVisible];
     
-    MainVC *mainVC = [[MainVC alloc] init];
-    UINavigationController *mainNC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    TabBarController *tabBarController = [[TabBarController alloc] init]; 
     
-    self.window.rootViewController = mainNC;
+//    MainVC *mainVC = [[MainVC alloc] init];
+//    UINavigationController *mainNC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+//    [mainNC.navigationBar setBackgroundColor:[UIColor magentaColor]];
+//    mainNC.navigationBar.tintColor = [UIColor redColor];
+    self.window.rootViewController = tabBarController;
     UIWindowScene *windowScene = (UIWindowScene*)scene;
     [self.window setWindowScene:windowScene];
     
